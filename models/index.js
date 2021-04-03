@@ -49,6 +49,7 @@ Menu.hasMany(SubMenu, {
   foreignKey: {name: 'menuId'}
 });
 
-sequelize.sync({alter: true});
+// sync only for first time
+// sequelize.sync({alter: true});
 
 module.exports = sequelize;
