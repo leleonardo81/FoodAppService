@@ -4,14 +4,9 @@ var sequelize = require('../models');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  var model = await sequelize.models.Menu.create({
-    label: "Menu 1",
-    price: 14000,
-    description: "hahahaha"
-  }, {isNewRecord: true});
-
-  console.log(model)
-  res.json({message: "Hello"});
+  const menu = await sequelize.models.Menu.findAll();
+  console.log("All users:", JSON.stringify(menu, null, 2));
+  res.json(menu);
 });
 
 module.exports = router;
